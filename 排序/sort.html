@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sort</title>
+</head>
+<body>
+    <script>
+        //选择排序
+        var arr = [4, 2, 1, 6, 5, 3];
+
+        for(var i = 0 , len = arr.length ; i < len ; i ++) {
+            var index = i
+            var flag = false;
+            for(var j = i+1 ; j < len ; j ++) {
+                if(arr[i] > arr[j]) {
+                    flag = true;
+                    index = j;
+                }
+            }
+
+            if(!flag) {  //如果已经有序，则不再遍历
+                break;
+            } else {
+                var tmp = arr[i];
+                arr[i] = arr[index];
+                arr[index] = tmp;
+            }
+            
+        }
+
+
+        //冒泡排序
+        var arr = [4, 2, 1, 6, 5, 3];
+
+        for(var i = 0 , len = arr.length ; i < len-1 ; i ++) {
+            var flag = false;
+            for(var j = 0 ; j < len-i-1 ; j ++) {
+                if(arr[j] > arr[j+1]) {
+                    var flag = true;
+                    var tmp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = tmp;
+                }
+            }
+
+            if(!flag) {
+                break;
+            }
+            
+        }
+
+
+        //插入排序
+        var arr = [4, 2, 1, 6, 5, 3];
+
+        for(var i = 1 , len = arr.length ; i < len ; i ++) {
+            var index = i - 1;
+            var tmp = arr[i];
+
+            while(index >= 0 && arr[index] > tmp) {
+                arr[index+1] = arr[index];
+                index --;
+            }
+
+            arr[index+1] = tmp;
+
+        }
+
+        console.log(arr);
+
+    </script>
+    
+</body>
+</html>
