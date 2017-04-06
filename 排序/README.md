@@ -8,7 +8,7 @@
 
 选择排序原理很简单，就是循环遍历未排序的部分，然后选出最小（大）的一项放在已排序部分的末端。
 
-![image]()
+![image](https://github.com/yukiyuki1900/Data-Structures-and-Algorithms/blob/master/%E6%8E%92%E5%BA%8F/selectionSort.gif)
 
 ```
     //选择排序
@@ -37,7 +37,7 @@
     1. 遍历每一个左右相邻的元素，如果第一个比第二个大（小），就交换它们的位置，这样最后一个一定是最大（小）值
     2. 对剩下部分（除最后一个元素）重复第一个步骤，直到没有可以对比的元素为止
 
-![image]()
+![image](https://github.com/yukiyuki1900/Data-Structures-and-Algorithms/blob/master/%E6%8E%92%E5%BA%8F/bubbleSort.gif)
 
 ```
     //冒泡排序
@@ -68,7 +68,7 @@
 
 算法步骤是：把第一项元素看做是有序列，把第二项到最后一个元素看成是无序的列，然后遍历无序列，将元素插入到有序列的合适的位置中。
 
-![image]()
+![image](https://github.com/yukiyuki1900/Data-Structures-and-Algorithms/blob/master/%E6%8E%92%E5%BA%8F/insertionSort.gif)
 
 ```
     //插入排序
