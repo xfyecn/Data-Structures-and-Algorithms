@@ -67,7 +67,67 @@
 
         }
 
-        console.log(arr);
+
+        //快速排序
+        function quickSort(arr, low, high) {
+            low = low || 0;
+            high = high || arr.length-1;
+
+            if(low >= high) {
+                return;
+            }
+
+            var loc = part(arr, low, high);
+            quickSort(arr, low, loc-1);
+            quickSort(arr, loc+1, high);
+        }
+
+        function part(arr, low, high) { // 根据基准值将未排序的数组分两个区
+            var pivot = arr[low];  //将第一个值设为基准值
+
+            while(low < high) {
+                while(arr[high] > pivot && low < high) {  //找到比pivot小的值，放到左边
+                    high --;
+                }
+                arr[low] = arr[high];
+
+                while(arr[low] <= pivot && low < high) {  //找到比pivot大的值，放在右边
+                    low ++;
+                }
+                arr[high] = arr[low];
+
+            }
+            arr[low] = pivot;   //这样pivot左边都是小于或等于pivot的值，右边都是大于pivot的值
+
+            return low;
+        }
+
+        var arr = [4, 2, 1, 6, 5, 3];
+        quickSort(arr);
+
+        //快速排序2
+        function quickSort2(arr) {
+            if(arr.length <= 1 ) {
+                return arr;
+            }
+            var pivot = arr[0];
+            var left = [];
+            var right = [];
+
+            for(var i = 1 , len = arr.length ; i < len ; i ++) {
+                if(arr[i] <= pivot) {
+                    left.push(arr[i]);
+                }else if(arr[i] > pivot) {
+                    right.push(arr[i])
+                }
+            }
+
+            return quickSort2(left).concat(pivot, quickSort2(right));
+        }
+
+        var arr = [4, 2, 1, 6, 5, 3];
+        var arr2 = quickSort2(arr);
+        console.log(arr2);
 
     </script>
     

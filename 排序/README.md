@@ -94,3 +94,78 @@
 
 ### 时间复杂度O(nlogn) -- 快速排序、归并排序、希尔排序、堆排序
 
+#### 快速排序
+
+快排是一个很经典，在实际运用中也很常用的一个排序算法，它的原理是使用分而治之和递归的方法对元素进行排序
+
+算法步骤是：
+    1. 先选出一个基准值，然后将所有的元素与这个基准值做比较，小于基准值的放在左边，大于基准值的放在右边
+    2. 分别对左边和右边两列执行步骤1和步骤2的操作
+
+```
+    //快速排序
+    function quickSort(arr, low, high) {
+        low = low || 0;
+        high = high || arr.length-1;
+
+        if(low >= high) {
+            return;
+        }
+
+        var loc = part(arr, low, high);
+        quickSort(arr, low, loc-1);
+        quickSort(arr, loc+1, high);
+    }
+
+    function part(arr, low, high) { // 根据基准值将未排序的数组分两个区
+        var pivot = arr[low];  //将第一个值设为基准值
+
+        while(low < high) {
+            while(arr[high] > pivot && low < high) {  //找到比pivot小的值，放到左边
+                high --;
+            }
+            arr[low] = arr[high];
+
+            while(arr[low] <= pivot && low < high) {  //找到比pivot大的值，放在右边
+                low ++;
+            }
+            arr[high] = arr[low];
+
+        }
+        arr[low] = pivot;   //这样pivot左边都是小于或等于pivot的值，右边都是大于pivot的值
+
+        return low;
+    }
+
+    var arr = [4, 2, 1, 6, 5, 3];
+    quickSort(arr);
+```
+
+除此之外，我看还看到有通过js自带的函数来实现的，不过需要浪费额外的空间
+
+```
+    //快速排序2
+    function quickSort2(arr) {
+        if(arr.length <= 1 ) {
+            return arr;
+        }
+        var pivot = arr[0];
+        var left = [];
+        var right = [];
+
+        for(var i = 1 , len = arr.length ; i < len ; i ++) {
+            if(arr[i] <= pivot) {
+                left.push(arr[i]);
+            }else if(arr[i] > pivot) {
+                right.push(arr[i])
+            }
+        }
+
+        return quickSort2(left).concat(pivot, quickSort2(right));
+    }
+
+    var arr = [4, 2, 1, 6, 5, 3];
+    var arr2 = quickSort2(arr);
+```
+
+如果数据量比较大的话，第二种方法所消耗的内存也会比较大。
