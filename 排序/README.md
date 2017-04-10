@@ -174,4 +174,67 @@
 
 ### 归并排序
 
+归并排序应该比较好理解，就是遍历两个已排序的序列，选择比较小的一项放入新的序列中，最终得到一个已排序的序列。
 
+也是使用分而治之的方法，对序列进行自上而下的递归，主要步骤如下：
+
+    1. 申请一个空数组，来存放排序后的两个序列
+    2. 将两个指针放在两个已排序的序列前端，同时遍历两个序列，遇到较小的元素则将此元素push进步骤1的数组里，直到遍历到序列最后一个元素
+    3. 重复步骤1和步骤2，直到最小已排序序列长度为1
+
+![image]()
+
+```
+    //归并排序
+    function mergeSort(arr) {
+        var len = arr.length;
+
+        if(len <= 1) {
+            return arr;
+        }
+
+        var mid = parseInt(len/2);
+        var larr = arr.slice(0, mid);
+        var rarr = arr.slice(mid);
+
+        return merge(mergeSort(larr), mergeSort(rarr));
+    }
+
+    function merge(left, right) {
+        var result = [];
+        var i = 0;
+        var j = 0;
+        var llen = left.length;
+        var rlen = right.length;
+
+        while(i < llen && j < rlen) {
+            if(left[i] < right[j]) {
+                result.push(left[i]);
+                i ++;
+            }else {
+                result.push(right[j]);
+                j ++;
+            }
+        }
+
+        while(i < llen) {
+            result.push(left[i]);
+            i ++;
+        }
+
+        while(j < rlen) {
+            result.push(right[j]);
+            j ++;
+        }
+
+        return result;
+    }
+
+    var arr = [4, 2, 1, 6, 5, 3];
+    var arr2 = mergeSort(arr);
+```
+
+因为需要申请新的空间，所以归并排序的空间复杂度是O(n);
+
+
+### 希尔排序
