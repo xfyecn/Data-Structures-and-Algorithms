@@ -295,8 +295,6 @@
         var gap = parseInt(len/2);
 
         while(gap > 0) {
-            console.log(gap);
-            console.log(arr);
             for(var i = gap ; i < len ; i ++) {
                 var tmp = arr[i];
                 for(j = i - gap ; j >= 0 && arr[j] > tmp ; j -= gap) {
