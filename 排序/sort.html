@@ -175,7 +175,39 @@
 
         var arr = [4, 2, 1, 6, 5, 3];
         var arr2 = mergeSort(arr);
-        console.log(arr2);
+
+
+        //希尔排序
+        function shellSort(arr) {
+            var len = arr.length;
+
+            if(len <= 1) {
+                return;
+            }
+
+            var gap = parseInt(len/2);
+
+            while(gap > 0) {
+                console.log(gap);
+                console.log(arr);
+                for(var i = gap ; i < len ; i ++) {
+                    var tmp = arr[i];
+                    for(j = i - gap ; j >= 0 && arr[j] > tmp ; j -= gap) {
+                        arr[j+gap] = arr[j];
+                    }
+                    arr[j+gap] = tmp;
+                }
+
+                gap = parseInt(gap/2);
+            }
+
+            return arr;
+        }
+
+        var arr = [10, 2, 9, 6, 5, 3, 7, 8, 1, 11, 4];
+        shellSort(arr);
+
+        console.log(arr);
 
     </script>
     
