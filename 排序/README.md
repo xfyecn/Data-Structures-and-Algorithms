@@ -182,7 +182,7 @@
     2. 将两个指针放在两个已排序的序列前端，同时遍历两个序列，遇到较小的元素则将此元素push进步骤1的数组里，直到遍历到序列最后一个元素
     3. 重复步骤1和步骤2，直到最小已排序序列长度为1
 
-![image]()
+![image](https://github.com/yukiyuki1900/Data-Structures-and-Algorithms/blob/master/%E6%8E%92%E5%BA%8F/mergeSort.gif)
 
 ```
     //归并排序
