@@ -205,6 +205,55 @@
         var arr = [10, 2, 9, 6, 5, 3, 7, 8, 1, 11, 4];
         shellSort(arr);
 
+
+        //堆排序
+        function max_heapify(arr, start, end) {
+            var dad = start;
+            var son = dad*2 + 1;   //找到左子节点
+
+            if(son >= end) {  //超过数组长度，则跳出
+                return;
+            }
+
+            if(son + 1 < end && arr[son] < arr[son+1]) {  //对比两个子节点，挑出最大的子节点
+                son ++;
+            }
+
+            if(arr[son] >= arr[dad]) {
+                //父子节点交换
+                var tmp = arr[dad];
+                arr[dad] = arr[son];
+                arr[son] = tmp;
+
+                //继续将子节点当成下一个二叉树的父节点，直到到达二叉树的叶子节点
+                max_heapify(arr, son, end);
+            }
+        }
+
+        function heapSort(arr) { 
+            var len = arr.length;
+
+            if(len <= 1) {
+                return arr;
+            }
+
+            for(var i = parseInt(len/2) - 1 ; i >= 0 ; i --) {
+                max_heapify(arr, i, len);
+            }
+
+            for(var i = len-1 ; i > 0 ; i --) {
+                //交换第一个元素和最后一个元素
+                var tmp = arr[0];
+                arr[0] = arr[i];
+                arr[i] = tmp;
+
+                //对未排序数列进行父子节点判断交换
+                max_heapify(arr, 0, i);
+            }
+        }
+
+        var arr = [10, 2, 9, 6, 5, 3, 7, 8, 1, 11, 4];
+        heapSort(arr);
         console.log(arr);
 
     </script>
