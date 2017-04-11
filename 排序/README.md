@@ -313,6 +313,7 @@
     shellSort(arr);
 ```
 
+
 ### 堆排序
 
 堆是类似完全二叉树的一个数据结构，在起始下标为0的数组中：
@@ -328,9 +329,13 @@
     3. 将第一位元素与未排序的最后一个序列的最后一位交换
     4. 对左边未排序序列循环1，2，3步骤，最终得到已排序的升序序列
 
-![image]()
+![image](https://github.com/yukiyuki1900/Data-Structures-and-Algorithms/blob/master/%E6%8E%92%E5%BA%8F/heapSort.gif)
+
+```
+```
 
 ### 参考材料
 
 * [希尔排序](https://zh.wikipedia.org/wiki/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F)
+* [堆排序](https://zh.wikipedia.org/wiki/%E5%A0%86%E6%8E%92%E5%BA%8F)
 * [十大经典排序算法](https://sort.hust.cc/)
