@@ -139,7 +139,7 @@
     }
 
     var arr = [4, 2, 1, 6, 5, 3];
-    quickSort(arr);
+    quickSort(arr, 0, arr.length-1);
 ```
 
 除此之外，我看还看到有通过js自带的函数来实现的，不过需要浪费额外的空间
