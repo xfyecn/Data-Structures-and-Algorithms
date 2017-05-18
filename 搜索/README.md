@@ -31,10 +31,46 @@
 
 ```
 
+上面的方法用到了递归，在数据量大的时候会过多的消耗内存。这种不依赖上一级函数返回结果的递归，可以将其改为非递归函数。
+
+```
+    var binary_search2 = function (arr, key, start, end) {
+        if(start > end) {
+            return -1;
+        }
+
+        while(start < end) {
+            var mid = parseInt((start + end)/2);
+
+            if(arr[mid] === key) {
+                return mid;
+            }
+
+            if(arr[mid] > key) {
+                end = mid-1;
+            }
+
+            if(arr[mid] < key) {
+                start = mid+1;
+            }
+
+        }
+
+        return -1;
+    }
+
+```
+
 因为每次都会把搜索区域折半，所以时间复杂度是O(log n)
 
 
-### 二叉排序树搜索
+### 广度优先(BFS)
+
+
+![image]()
+
+
+### 深度优先(DFS)
 
 
 ### 哈希搜索
@@ -46,3 +82,4 @@
 
 ### 参考材料
 * [二分搜索算法](https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%88%86%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95)
+* [广度优先](https://zh.wikipedia.org/wiki/%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E6%90%9C%E7%B4%A2)
