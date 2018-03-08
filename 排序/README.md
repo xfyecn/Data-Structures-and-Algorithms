@@ -8,7 +8,8 @@
 
 选择排序原理很简单，就是循环遍历未排序的部分，然后选出最小（大）的一项放在已排序部分的末端。
 
-![image](https://github.com/yukiyuki1900/Data-Structures-and-Algorithms/blob/master/%E6%8E%92%E5%BA%8F/selectionSort.gif)
+![./selectionSort.gif](./selectionSort.gif)
+
 
 ```
     //选择排序
@@ -37,7 +38,8 @@
     1. 遍历每一个左右相邻的元素，如果第一个比第二个大（小），就交换它们的位置，这样最后一个一定是最大（小）值
     2. 对剩下部分（除最后一个元素）重复第一个步骤，直到没有可以对比的元素为止
 
-![image](https://github.com/yukiyuki1900/Data-Structures-and-Algorithms/blob/master/%E6%8E%92%E5%BA%8F/bubbleSort.gif)
+![./bubbleSort.gif](./bubbleSort.gif)
+
 
 ```
     //冒泡排序
@@ -68,7 +70,8 @@
 
 算法步骤是：把第一项元素看做是有序列，把第二项到最后一个元素看成是无序的列，然后遍历无序列，将元素插入到有序列的合适的位置中。
 
-![image](https://github.com/yukiyuki1900/Data-Structures-and-Algorithms/blob/master/%E6%8E%92%E5%BA%8F/insertionSort.gif)
+![./insertionSort.gif](./insertionSort.gif)
+
 
 ```
     //插入排序
@@ -182,7 +185,8 @@
     2. 将两个指针放在两个已排序的序列前端，同时遍历两个序列，遇到较小的元素则将此元素push进步骤1的数组里，直到遍历到序列最后一个元素
     3. 重复步骤1和步骤2，直到最小已排序序列长度为1
 
-![image](https://github.com/yukiyuki1900/Data-Structures-and-Algorithms/blob/master/%E6%8E%92%E5%BA%8F/mergeSort.gif)
+![./mergeSort.gif](./mergeSort.gif)
+
 
 ```
     //归并排序
